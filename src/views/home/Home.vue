@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 import axios from "axios";
 import HeadHome from './childComps/HeadHome'
 import SwiperHome from "./childComps/SwiperHome";
@@ -30,23 +31,21 @@ export default {
       swiperList: [],
       iconList: [],
       recommendList: [],
-      weekendList: []
+      weekendList: [],
+      lastCity: ''
     }
   },
   mounted() {
     // this.getCityInfo()
     this.getHomeInfo()
   },
+  activated() {
+    if(this.lastCity !== this.city){
+      this.lastCity = this.city
+      this.getHomeInfo()
+    }
+  },
   methods: {
-    // getCityInfo(){
-    //   axios.get('/mock/city.json').then(this.getCityInfoRes)
-    // },
-    // getCityInfoRes(res){
-    //   res = res.data.data
-    //   if(res){
-    //     this.city = res.hotCities
-    //   }
-    // },
     getHomeInfo(){
       axios.get('/mock/index.json').then(this.getHomeInfoRes)
     },
@@ -60,6 +59,9 @@ export default {
         this.weekendList = res.weekendList
       }
     }
+  },
+  computed: {
+    ...mapState(['city'])
   }
 }
 </script>

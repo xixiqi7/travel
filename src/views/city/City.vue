@@ -38,8 +38,6 @@ export default {
     getCityInfoRes(res){
       if(res.data && res.data.ret){
         res = res.data.data
-        console.log(res.cities)
-        console.log(res.hotCities)
         this.hotCities = res.hotCities
         this.cities = res.cities
 
