@@ -8,8 +8,8 @@
       输入城市/景点/游玩主题
     </div>
     <router-link to='/city'>
-      <div class="header-right" v-if="city[0]">
-        {{this.city[0].name}}
+      <div class="header-right">
+        北京
         <span class="iconfont arrow-icon">&#xe64a;</span>
       </div>
     </router-link>
@@ -19,15 +19,7 @@
 
 <script>
 export default {
-  name: "HeadHome",
-  props: {
-    city: {
-      type: Array,
-      default(){
-        return []
-      }
-    }
-  }
+  name: "HeadHome"
 }
 </script>
 
