@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     getHomeInfo(){
-      axios.get('/mock/index.json').then(this.getHomeInfoRes)
+      axios.get('/api/index.json').then(this.getHomeInfoRes)
     },
     getHomeInfoRes(res){
       res = res.data.data
